@@ -1,20 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "baseUrl": ".",
+    "target": "ES2015",
+    "lib": ["dom", "dom.iterable", "esnext", "ES6"],
+    "sourceMap": true,
+    "allowJs": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noEmit": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "useDefineForClassFields": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "paths": {
+    "@pages/*": "pages/*"
+  }
 }

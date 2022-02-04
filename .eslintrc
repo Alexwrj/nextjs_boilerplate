@@ -1,0 +1,171 @@
+{
+  "plugins": ["simple-import-sort"],
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
+    },
+    "tsconfigRootDir": "./",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "semi": ["warn", "always"],
+    "no-shadow": "off",
+    "camelcase": [
+      "warn",
+      {
+        "properties": "never",
+        "ignoreDestructuring": true
+      }
+    ],
+    "dot-notation": "off",
+    "implicit-arrow-linebreak": "off",
+    "object-curly-newline": "off",
+    "consistent-return": "off",
+    "no-empty-pattern": "warn",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "tabWidth": 2,
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignorePattern": "^import [^,]+ from |^export | implements "
+      }
+    ],
+    "arrow-body-style": "off",
+    "class-methods-use-this": "off",
+    "no-use-before-define": "off",
+    "no-unused-expressions": "off",
+    "no-restricted-syntax": "off",
+    "no-useless-escape": "off",
+    "no-await-in-loop": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-useless-constructor": "off",
+    "no-return-assign": ["error", "except-parens"],
+    "import/namespace": "error",
+    "import/default": "error",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/__tests__/**",
+          "**/__mocks__/**",
+          "**/*{.,_}{test,spec}.{js,jsx,ts,tsx}",
+          "**/jest.config.js",
+          "**/webpack.config.js",
+          "**/webpack.config.*.js",
+          "**/next.config.js",
+          "**/next.config.*.js",
+          "**/__stories__/**",
+          "**/*.stories.tsx"
+        ],
+        "optionalDependencies": false
+      }
+    ],
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^@pages"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "import/order": "off",
+    "jsx-quotes": ["warn", "prefer-double"],
+    "react/jsx-fragments": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "react/jsx-filename-extension": "off",
+    "react/prop-types": "off",
+    "react/forbid-prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/require-default-props": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-array-index-key": "warn",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-handler-names": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/jsx-no-bind": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-useless-constructor": "off",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "warn"
+      }
+    },
+    {
+      "files": ["server/**/*.{js, ts}"],
+      "env": { "node": true },
+      "rules": {
+        "simple-import-sort/imports": "off",
+        "import/order": [
+          "warn",
+          {
+            "newlines-between": "always",
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+            "pathGroups": [
+              {
+                "pattern": "@pages/**",
+                "group": "internal",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [],
+            "warnOnUnassignedImports": true,
+            "alphabetize": {
+              "order": "asc"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  }
+}
