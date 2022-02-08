@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES2015",
-    "lib": ["dom", "dom.iterable", "esnext", "ES6"],
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es6"
+    ],
+    "types": ["reflect-metadata"],
     "sourceMap": true,
     "allowJs": false,
     "strict": true,
@@ -20,11 +26,24 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ]
+    },
+    "skipLibCheck": true,
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@pages/*": "pages/*"
-  }
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

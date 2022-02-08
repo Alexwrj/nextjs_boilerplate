@@ -150,6 +150,11 @@
                 "pattern": "@pages/**",
                 "group": "internal",
                 "position": "before"
+              },
+              {
+                "pattern": "@services/**",
+                "group": "internal",
+                "position": "before"
               }
             ],
             "pathGroupsExcludedImportTypes": [],

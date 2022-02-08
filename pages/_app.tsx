@@ -1,14 +1,20 @@
+import 'reflect-metadata';
 import '../styles/globals.css';
-import { createContainer } from '../src/services/provider';
+import { Context } from '@redtea/react-inversify';
+import { createContainer } from '@services/provider';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 
 const Root = ({ Component, pageProps }: AppProps) => {
-  useEffect(() => {
-    createContainer();
+  const container = useMemo(() => {
+    return createContainer();
   }, [createContainer]);
 
-  return <Component {...pageProps} />;
+  return (
+    <Context.Provider value={container}>
+      <Component {...pageProps} />
+    </Context.Provider>
+  );
 };
 
 export default Root;

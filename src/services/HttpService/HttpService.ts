@@ -10,7 +10,7 @@ export const httpServiceToken = Symbol.for('HttpServiceToken');
 export class HttpService implements Http {
   private readonly instance: AxiosInstance;
 
-  constructor(@inject(configToken) config: Config) {
+  constructor(@inject(configToken) private readonly configService: Config) {
     const clientConfig = {
       withCredentials: true,
       crossdomain: true,
@@ -18,10 +18,10 @@ export class HttpService implements Http {
 
     const serverConfig = {
       headers: {
-        Authorization: `Bearer ${config.getServerOrDie('AUTH_TOKEN')}`,
+        Authorization: `Bearer ${configService.getServerOrDie('AUTH_TOKEN')}`,
       },
     };
-    this.instance = axios.create(config.isServer ? serverConfig : clientConfig);
+    this.instance = axios.create(configService.isServer ? serverConfig : clientConfig);
   }
 
   private errorHandler<E>(error: AxiosError<E>): ErrorResponse<E> {
