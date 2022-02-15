@@ -19,14 +19,14 @@ export class ExhibitionsStore implements IExhibitionStore {
 
   constructor(@inject(httpServiceToken) private readonly httpService: Http) {
     makeAutoObservable(this, {}, { autoBind: true });
-    this.nextPage = `https://api.artic.edu/api/v1/exhibitions/limit=${LIMIT}`;
+    this.nextPage = `https://api.artic.edu/api/v1/exhibitions?limit=${LIMIT}`;
   }
 
   private fetchExhibitions(): Promise<Response<any, ExhibitionResponse>> {
     return this.httpService.get(this.nextPage);
   }
 
-  public async loadInitialExhibitions(): Promise<void> {
+  public async loadExhibitions(): Promise<void> {
     this.isLoading = true;
     this.hasError = false;
 
@@ -54,7 +54,7 @@ export class ExhibitionsStore implements IExhibitionStore {
     this.exhibitions = exhibitions;
   }
 
-  get initialNextPage(): string {
+  public getInitialNextPage(): string {
     return this.nextPage;
   }
 }

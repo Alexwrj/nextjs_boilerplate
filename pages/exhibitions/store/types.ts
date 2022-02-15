@@ -1,9 +1,9 @@
 export interface IExhibitionStore {
   isLoading: boolean;
   hasError: boolean;
-  initialNextPage: string;
   exhibitions: Exhibition[];
-  loadInitialExhibitions(): Promise<void>;
+  getInitialNextPage(): string;
+  loadExhibitions(): Promise<void>;
   setInitialNextPage(nextPage: string): void;
   setInitialExhibitions(exhibitions: Exhibition[]): void;
 }

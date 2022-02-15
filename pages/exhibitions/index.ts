@@ -10,17 +10,17 @@ export default Exhibitions;
 // TODO: put the di container into Context of static props
 
 export const getServerSideProps: GetServerSideProps<ExhibitionProps> = async () => {
+  // TODO: should find a way to grab it from context object
   const container = createContainer();
 
-  const { loadInitialExhibitions, exhibitions, initialNextPage } =
-    container.get<IExhibitionStore>(exhibitionStoreToken);
+  const exhibitionStore = container.get<IExhibitionStore>(exhibitionStoreToken);
 
-  await loadInitialExhibitions();
+  await exhibitionStore.loadExhibitions();
 
   return {
     props: {
-      initialExhibitions: exhibitions,
-      initialNextPage,
+      initialExhibitions: exhibitionStore.exhibitions,
+      initialNextPage: exhibitionStore.getInitialNextPage(),
     },
   };
 };

@@ -33,6 +33,9 @@
       ],
       "@services/*": [
         "src/services/*"
+      ],
+      "@common/*": [
+        "src/components/common/*"
       ]
     },
     "skipLibCheck": true,

@@ -155,6 +155,11 @@
                 "pattern": "@services/**",
                 "group": "internal",
                 "position": "before"
+              },
+              {
+                "pattern": "@common/**",
+                "group": "internal",
+                "position": "before"
               }
             ],
             "pathGroupsExcludedImportTypes": [],
