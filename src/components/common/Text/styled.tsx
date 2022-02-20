@@ -6,6 +6,8 @@ const styleMap: Record<FontStyle, FlattenSimpleInterpolation> = {
     font-size: 48px;
     line-height: 56px;
     font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
   `,
 };
 

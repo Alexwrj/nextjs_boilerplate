@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import '../styles/globals.css';
+import GlobalStyle from '../styles/global';
 import { Header } from '@common/Header';
 import { Text } from '@common/Text/Text';
 import { FontStyle } from '@common/Text/types';
@@ -15,6 +15,7 @@ const Root = ({ Component, pageProps }: AppProps) => {
 
   return (
     <Context.Provider value={container}>
+      <GlobalStyle />
       <Header
         logo={
           <Text fontStyle={FontStyle.Headline} color="white" as="h2">
