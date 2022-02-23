@@ -16,6 +16,13 @@ const styleMap: Record<FontStyle, FlattenSimpleInterpolation> = {
     font-family: 'Roboto', sans-serif;
     margin: 5px 0;
   `,
+  [FontStyle.ItalicTitle]: css`
+    font-size: 24px;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: 'Roboto Italic', sans-serif;
+    margin: 0;
+  `,
   [FontStyle.ItalicText]: css`
     font-size: 14px;
     line-height: 16px;

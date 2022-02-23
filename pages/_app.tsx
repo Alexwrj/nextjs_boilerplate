@@ -1,8 +1,7 @@
 import 'reflect-metadata';
 import GlobalStyle from '../styles/global';
 import { Header } from '@common/Header';
-import { Text } from '@common/Text/Text';
-import { FontStyle } from '@common/Text/types';
+import { FontStyle, Text } from '@common/Text';
 import { Context } from '@redtea/react-inversify';
 import { createContainer } from '@services/provider';
 import type { AppProps } from 'next/app';

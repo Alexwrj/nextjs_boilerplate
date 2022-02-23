@@ -1,8 +1,7 @@
 import { ExhibitionCardWrapper, Image } from '@pages/exhibitions/ExhibitionCard/styled';
 import { ExhibitionView } from '@pages/exhibitions/store/ExhibitionView';
 
-import { Text } from '@common/Text/Text';
-import { FontStyle } from '@common/Text/types';
+import { FontStyle, Text } from '@common/Text';
 import React from 'react';
 
 interface ExhibitionInterface {

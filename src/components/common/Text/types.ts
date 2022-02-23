@@ -4,6 +4,7 @@ export type TextColor = 'white' | 'black';
 export enum FontStyle {
   Headline = 1,
   ItemTitle,
+  ItalicTitle,
   ItalicText,
 }
 

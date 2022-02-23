@@ -9,7 +9,7 @@ import { makeAutoObservable, runInAction } from 'mobx';
 
 export const exhibitionStoreToken = Symbol.for('ExhibitionStoreToken');
 
-const LIMIT = 10;
+const LIMIT = 20;
 
 @injectable()
 export class ExhibitionsStore implements IExhibitionStore {
