@@ -12,7 +12,7 @@ export class HttpService implements Http {
 
   constructor(@inject(configToken) private readonly configService: Config) {
     const clientConfig = {
-      withCredentials: true,
+      withCredentials: false,
       crossdomain: true,
     };
 

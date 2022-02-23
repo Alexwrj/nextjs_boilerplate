@@ -36,7 +36,7 @@ export class ExhibitionsStore implements IExhibitionStore {
 
     runInAction(() => {
       response.mapRight(({ data: { data: exhibitions, pagination } }) => {
-        this.exhibitions = exhibitions;
+        this.exhibitions = [...this.exhibitions, ...exhibitions];
         this.nextPage = pagination.next_url;
       });
 
@@ -62,5 +62,9 @@ export class ExhibitionsStore implements IExhibitionStore {
 
   public buildView(exhibitionData: Exhibition): ExhibitionView {
     return new ExhibitionView(exhibitionData);
+  }
+
+  get hasNextPage(): boolean {
+    return Boolean(this.nextPage);
   }
 }
