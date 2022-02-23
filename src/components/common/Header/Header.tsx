@@ -1,3 +1,4 @@
+import { MainLayout } from '../../mixins/MainLayout';
 import { HeaderWrapper } from './styled';
 import React from 'react';
 
@@ -6,4 +7,8 @@ export interface HeaderProps {
   logo: React.ReactNode | string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ logo }) => <HeaderWrapper>{logo}</HeaderWrapper>;
+export const Header: React.FC<HeaderProps> = ({ logo }) => (
+  <HeaderWrapper>
+    <MainLayout>{logo}</MainLayout>
+  </HeaderWrapper>
+);

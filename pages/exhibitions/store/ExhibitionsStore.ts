@@ -1,3 +1,5 @@
+import { ExhibitionView } from '@pages/exhibitions/store/ExhibitionView';
+
 import 'reflect-metadata';
 import { Exhibition, ExhibitionResponse, IExhibitionStore } from './types';
 import { Http, httpServiceToken } from '@services/HttpService';
@@ -56,5 +58,9 @@ export class ExhibitionsStore implements IExhibitionStore {
 
   public getInitialNextPage(): string {
     return this.nextPage;
+  }
+
+  public buildView(exhibitionData: Exhibition): ExhibitionView {
+    return new ExhibitionView(exhibitionData);
   }
 }

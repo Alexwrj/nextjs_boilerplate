@@ -6,8 +6,6 @@ const colors = {
 };
 
 export const HeaderWrapper = styled.div`
-  display: flex;
-  align-items: center;
   background-color: ${colors.darkGray};
   box-sizing: border-box;
   padding: 12px 19px;

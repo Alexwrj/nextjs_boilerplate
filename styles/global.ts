@@ -28,11 +28,18 @@ const GlobalStyle = createGlobalStyle`
   }
   
    @font-face {
-     font-family: 'Roboto';
+     font-family: 'Roboto Bold';
      src: url('fonts/Roboto/Roboto-Black.ttf') format('truetype');
      font-style: normal;
      font-weight: bold;
    }
+
+  @font-face {
+    font-family: 'Roboto Italic';
+    src: url('fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
 `;
 
 export default GlobalStyle;

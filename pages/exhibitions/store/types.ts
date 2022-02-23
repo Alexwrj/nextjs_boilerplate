@@ -1,3 +1,5 @@
+import { ExhibitionView } from '@pages/exhibitions/store/ExhibitionView';
+
 export interface IExhibitionStore {
   isLoading: boolean;
   hasError: boolean;
@@ -6,6 +8,7 @@ export interface IExhibitionStore {
   loadExhibitions(): Promise<void>;
   setInitialNextPage(nextPage: string): void;
   setInitialExhibitions(exhibitions: Exhibition[]): void;
+  buildView(exhibitionData: Exhibition): ExhibitionView;
 }
 
 export interface Exhibition {
@@ -13,6 +16,7 @@ export interface Exhibition {
   readonly title: string;
   readonly aic_start_at: string; //  ISO 860
   readonly aic_end_at: string; //  ISO 860
+  readonly image_url?: string;
 }
 
 export interface Pagination {
