@@ -1,18 +1,18 @@
 import { ExhibitionView } from '@pages/exhibitions/store/ExhibitionView';
 
 import 'reflect-metadata';
-import { Exhibition, ExhibitionResponse, IExhibitionStore } from './types';
+import { Exhibition, ExhibitionsResponse, IExhibitionsStore } from './types';
 import { Http, httpServiceToken } from '@services/HttpService';
 import { Response } from '@services/HttpService/types';
 import { inject, injectable } from 'inversify';
 import { makeAutoObservable, runInAction } from 'mobx';
 
-export const exhibitionStoreToken = Symbol.for('ExhibitionStoreToken');
+export const exhibitionsStoreToken = Symbol.for('ExhibitionsStoreToken');
 
 const LIMIT = 20;
 
 @injectable()
-export class ExhibitionsStore implements IExhibitionStore {
+export class ExhibitionsStore implements IExhibitionsStore {
   private nextPage: string;
 
   public isLoading = false;
@@ -24,7 +24,8 @@ export class ExhibitionsStore implements IExhibitionStore {
     this.nextPage = `https://api.artic.edu/api/v1/exhibitions?limit=${LIMIT}`;
   }
 
-  private fetchExhibitions(): Promise<Response<any, ExhibitionResponse>> {
+  // TODO: create a separate Repository store, encapsulate its logic and make it injectable
+  private fetchExhibitions(): Promise<Response<unknown, ExhibitionsResponse>> {
     return this.httpService.get(this.nextPage);
   }
 

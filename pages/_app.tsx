@@ -18,7 +18,7 @@ const Root = ({ Component, pageProps }: AppProps) => {
       <Header
         logo={
           <Text fontStyle={FontStyle.Headline} color="white" as="h2">
-            Exhibitions
+            Exhibitions!
           </Text>
         }
       />

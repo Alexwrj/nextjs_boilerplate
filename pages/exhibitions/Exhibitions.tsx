@@ -1,6 +1,7 @@
-import { exhibitionStoreToken, IExhibitionStore } from '@pages/exhibitions/store';
+import { buildExhibitionView } from '@pages/exhibitions/helpers';
+import { exhibitionsStoreToken, IExhibitionsStore } from '@pages/exhibitions/store';
 import { ExhibitionsGrid, InfiniteScrollWrapper } from '@pages/exhibitions/styled';
-import { ExhibitionProps } from '@pages/exhibitions/types';
+import { ExhibitionsProps } from '@pages/exhibitions/types';
 
 import { ExhibitionCard } from './ExhibitionCard';
 import { InfiniteScroll } from '@common/InfiniteScroll';
@@ -9,16 +10,10 @@ import { useService } from '@redtea/react-inversify';
 import { observer } from 'mobx-react-lite';
 import React, { useCallback, useEffect } from 'react';
 
-export const Exhibitions: React.FC<ExhibitionProps> = observer(
+export const Exhibitions: React.FC<ExhibitionsProps> = observer(
   ({ initialExhibitions, initialNextPage }) => {
-    const {
-      buildView,
-      setInitialExhibitions,
-      exhibitions,
-      loadExhibitions,
-      setInitialNextPage,
-      hasNextPage,
-    } = useService<IExhibitionStore>(exhibitionStoreToken);
+    const { setInitialExhibitions, exhibitions, loadExhibitions, setInitialNextPage, hasNextPage } =
+      useService<IExhibitionsStore>(exhibitionsStoreToken);
 
     useEffect(() => {
       setInitialExhibitions(initialExhibitions);
@@ -36,7 +31,7 @@ export const Exhibitions: React.FC<ExhibitionProps> = observer(
       <PageLayout>
         <ExhibitionsGrid>
           {exhibitions.map((exhibition) => (
-            <ExhibitionCard exhibition={buildView(exhibition)} />
+            <ExhibitionCard exhibition={buildExhibitionView(exhibition)} />
           ))}
         </ExhibitionsGrid>
         {hasNextPage && (

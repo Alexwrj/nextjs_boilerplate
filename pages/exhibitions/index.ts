@@ -1,5 +1,5 @@
-import { exhibitionStoreToken, IExhibitionStore } from '@pages/exhibitions/store';
-import { ExhibitionProps } from '@pages/exhibitions/types';
+import { exhibitionsStoreToken, IExhibitionsStore } from '@pages/exhibitions/store';
+import { ExhibitionsProps } from '@pages/exhibitions/types';
 
 import { Exhibitions } from './Exhibitions';
 import { createContainer } from '@services/provider';
@@ -9,18 +9,18 @@ export default Exhibitions;
 
 // TODO: put the di container into Context of static props
 
-export const getServerSideProps: GetServerSideProps<ExhibitionProps> = async () => {
+export const getServerSideProps: GetServerSideProps<ExhibitionsProps> = async () => {
   // TODO: should find a way to grab it from context object
   const container = createContainer();
 
-  const exhibitionStore = container.get<IExhibitionStore>(exhibitionStoreToken);
+  const exhibitionsStore = container.get<IExhibitionsStore>(exhibitionsStoreToken);
 
-  await exhibitionStore.loadExhibitions();
+  await exhibitionsStore.loadExhibitions();
 
   return {
     props: {
-      initialExhibitions: exhibitionStore.exhibitions,
-      initialNextPage: exhibitionStore.getInitialNextPage(),
+      initialExhibitions: exhibitionsStore.exhibitions,
+      initialNextPage: exhibitionsStore.getInitialNextPage(),
     },
   };
 };

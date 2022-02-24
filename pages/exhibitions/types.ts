@@ -1,6 +1,6 @@
 import { Exhibition } from './store/types';
 
-export interface ExhibitionProps {
+export interface ExhibitionsProps {
   initialExhibitions: Exhibition[];
   initialNextPage: string;
 }

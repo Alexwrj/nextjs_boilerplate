@@ -1,4 +1,13 @@
-import { ExhibitionsStore, exhibitionStoreToken, IExhibitionStore } from '@pages/exhibitions/store';
+import { IExhibitionStore } from '@pages/exhibitions/[id]/store';
+import {
+  ExhibitionStore,
+  exhibitionStoreToken,
+} from '@pages/exhibitions/[id]/store/ExhibitionStore';
+import {
+  ExhibitionsStore,
+  exhibitionsStoreToken,
+  IExhibitionsStore,
+} from '@pages/exhibitions/store';
 
 import { Config, ConfigService, configToken } from './ConfigService';
 import { Http, HttpService, httpServiceToken } from './HttpService';
@@ -10,7 +19,8 @@ export const createContainer = () => {
 
   container.bind<Config>(configToken).toConstantValue(new ConfigService(getConfig()));
   container.bind<Http>(httpServiceToken).to(HttpService).inSingletonScope();
-  container.bind<IExhibitionStore>(exhibitionStoreToken).to(ExhibitionsStore).inSingletonScope();
+  container.bind<IExhibitionsStore>(exhibitionsStoreToken).to(ExhibitionsStore).inSingletonScope();
+  container.bind<IExhibitionStore>(exhibitionStoreToken).to(ExhibitionStore).inSingletonScope();
 
   return container;
 };

@@ -1,2 +1,2 @@
-export { ExhibitionsStore, exhibitionStoreToken } from './ExhibitionsStore';
-export type { IExhibitionStore } from './types';
+export { ExhibitionsStore, exhibitionsStoreToken } from './ExhibitionsStore';
+export type { IExhibitionsStore } from './types';

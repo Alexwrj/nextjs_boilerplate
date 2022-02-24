@@ -1,6 +1,6 @@
 import { ExhibitionView } from '@pages/exhibitions/store/ExhibitionView';
 
-export interface IExhibitionStore {
+export interface IExhibitionsStore {
   isLoading: boolean;
   hasError: boolean;
   exhibitions: Exhibition[];
@@ -29,7 +29,7 @@ export interface Pagination {
   readonly next_url: string;
 }
 
-export interface ExhibitionResponse {
+export interface ExhibitionsResponse {
   readonly data: Exhibition[];
   readonly pagination: Pagination;
 }
