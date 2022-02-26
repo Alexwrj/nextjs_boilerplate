@@ -5,6 +5,8 @@ export const ExhibitionsGrid = styled.div`
   column-gap: 40px;
   row-gap: 22px;
   grid-template-columns: repeat(auto-fill, 313px);
+  padding: 0 13px;
+  margin-top: 45px;
 `;
 
 export const InfiniteScrollWrapper = styled.div`

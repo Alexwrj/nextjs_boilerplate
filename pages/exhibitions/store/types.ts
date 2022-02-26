@@ -18,6 +18,7 @@ export interface Exhibition {
   readonly aic_start_at: string; //  ISO 860
   readonly aic_end_at: string; //  ISO 860
   readonly image_url?: string;
+  readonly description: string;
 }
 
 export interface Pagination {

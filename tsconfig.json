@@ -36,6 +36,12 @@
       ],
       "@common/*": [
         "src/components/common/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
       ]
     },
     "skipLibCheck": true,

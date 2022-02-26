@@ -3,9 +3,12 @@ export type TextColor = 'white' | 'black';
 
 export enum FontStyle {
   Headline = 1,
-  ItemTitle,
-  ItalicTitle,
-  ItalicText,
+  BigTitle,
+  SmallTitle,
+  Text,
+  ItalicSmallTitle,
+  ItalicMediumTitle,
+  ItalicSmallText,
 }
 
 export interface TextProps {

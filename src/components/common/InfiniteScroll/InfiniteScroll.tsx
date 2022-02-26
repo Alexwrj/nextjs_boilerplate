@@ -28,7 +28,7 @@ export const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
 
   return (
     <Wrapper ref={ref}>
-      <Text fontStyle={FontStyle.ItalicTitle}>Loading more exhibitions...</Text>
+      <Text fontStyle={FontStyle.ItalicMediumTitle}>Loading more exhibitions...</Text>
     </Wrapper>
   );
 };
